@@ -29,9 +29,29 @@ function displayBooks() {
     // loop through array and display book on screen
      for (const book in myLibrary) {
         //create div and add class card to it
+        const newCard = document.createElement('div');
+        const titleDiv = document.createElement('div');
+        const authorDiv = document.createElement('div');
+        const pagesDiv = document.createElement('div');
+        const readDiv = document.createElement('div');
+
+        newCard.classList.add('newCard');
+
+        titleDiv.classList.add('title');
+        authorDiv.classList.add('author');
+        pagesDiv.classList.add('pages');
+        readDiv.classList.add('read');
+
+        newCard.appendChild(titleDiv);
+        newCard.appendChild(authorDiv);
+        newCard.appendChild(pagesDiv);
+        newCard.appendChild(readDiv);
         //display book as a card or table
+        display.appendChild(newCard);
      }
 }
+
+const display = document.querySelector('.display');
 
 const addBook = document.querySelector('button');
 addBook.addEventListener('click', addBookToLibrary);
