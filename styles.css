@@ -1,0 +1,30 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: grid;
+    place-items: center;
+}
+
+.wrapper {
+    display: grid;
+    padding: 1rem;
+}
+
+.card {
+    width: 15rem;
+    height: 20rem;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 2rem;
+
+    display: grid;
+    text-align: center;
+}
+
+div.title {
+
+}
