@@ -23,9 +23,11 @@ function addBookToLibrary() {
 
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
+    displayBooks();
 }
 const display = document.querySelector('.display');
 function displayBooks() {
+    display.innerHTML = '';
     // loop through array and display book on screen
      for (const book of myLibrary) {
         //create div and add class card to it
@@ -38,6 +40,9 @@ function displayBooks() {
                 const newText = document.createTextNode('Read? ');
                 const newContent = document.createElement('INPUT');
                 newContent.setAttribute('type', 'checkbox');
+                if (book[prop]) {
+                    newContent.setAttribute('checked', "");
+                }
                 newDiv.append(newText);
                 newDiv.append(newContent);
                 newCard.append(newDiv); 

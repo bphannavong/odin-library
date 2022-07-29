@@ -29,3 +29,20 @@ main {
     font-size: 1.2rem;
     font-weight: bold;
 }
+
+.form.wrapper{
+    grid-template: 100vh / 100vw;
+}
+
+
+form {
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 1rem;
+    gap: 1rem;
+}
