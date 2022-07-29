@@ -13,10 +13,12 @@
 <body>
     <main>
         <h1>Library Project</h1>
-        <div class="display wrapper"></div>
-        <button>NEW BOOK</button>
+        <div class="main-content wrapper">
+            <div class="display"></div>
+        </div>
+        <button id="newBtn">NEW BOOK</button>
         <div class="form wrapper">
-            <form>
+            <form id="bookForm" >
                 <div>
                     <label for="title">Title: </label>
                     <input type="text" id="title" name="title">
@@ -33,6 +35,7 @@
                     <label for="read">Read? </label>
                     <input type="checkbox" id="read" name="read">
                 </div>
+                <button id="submitBtn">Add Book</button>
             </form>
         </div>
     </main>

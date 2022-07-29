@@ -15,18 +15,29 @@ Book.prototype.info = function() {
     }
 }
 
-function addBookToLibrary() {
-    const title = prompt('Title?', );
-    const author = prompt('Author?', );
-    const pages = prompt('Pages?', );
-    const read = prompt('Read? True or false?', );
+function addBookToLibrary(e) {
+
+    //make form popup appear
+    //take values from form --> create a book from values
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
+    const read = document.getElementById('read').value;
 
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
     displayBooks();
+    toggleForm();
 }
-const display = document.querySelector('.display');
+
+function toggleForm() {
+    const form = document.getElementById('bookForm');
+    form.classList.toggle('hidden');
+}
+
+
 function displayBooks() {
+    const display = document.querySelector('.display');
     display.innerHTML = '';
     // loop through array and display book on screen
      for (const book of myLibrary) {
@@ -61,5 +72,8 @@ function displayBooks() {
 
 
 
-const addBook = document.querySelector('button');
-addBook.addEventListener('click', addBookToLibrary);
+const newBook = document.getElementById('newBtn'); //bring up popup form
+newBook.addEventListener('click', toggleForm);
+
+const addBook = document.getElementById('submitBtn');
+addBook.addEventListener('click', addBookToLibrary, false);
