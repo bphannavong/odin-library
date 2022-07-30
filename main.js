@@ -1,4 +1,4 @@
-let myLibrary = [new Book('Moby Dick', 'Steve Jobs', 123, true)];
+let myLibrary = [];
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -15,8 +15,7 @@ Book.prototype.info = function() {
     }
 }
 
-function addBookToLibrary(e) {
-
+function addBookToLibrary() {
     //make form popup appear
     //take values from form --> create a book from values
     const title = document.getElementById('title').value;
@@ -26,13 +25,14 @@ function addBookToLibrary(e) {
 
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
+    console.log(myLibrary);
     displayBooks();
     toggleForm();
 }
 
 function toggleForm() {
-    const form = document.getElementById('bookForm');
-    form.classList.toggle('hidden');
+    const bookForm = document.getElementById('bookForm');
+    bookForm.classList.toggle('hidden');
 }
 
 
@@ -76,4 +76,4 @@ const newBook = document.getElementById('newBtn'); //bring up popup form
 newBook.addEventListener('click', toggleForm);
 
 const addBook = document.getElementById('submitBtn');
-addBook.addEventListener('click', addBookToLibrary, false);
+addBook.addEventListener('click', addBookToLibrary);
