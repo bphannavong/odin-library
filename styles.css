@@ -51,6 +51,12 @@ main {
 
 .card button {
     color: black;
+    background-color: red;
+    content: 'Not Read'
+}
+.card button.read {
+    background-color: green;
+    content: 'Read';
 }
 
 form {

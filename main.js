@@ -4,15 +4,11 @@ function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = Boolean(read);   
+    this.read = read;   
 }
 
-Book.prototype.info = function() {
-    if (this.read) {
-        return `${title} by ${author}, ${pages} pages, read.` 
-    } else {
-        return `${title} by ${author}, ${pages} pages, not read yet.` 
-    }
+Book.prototype.toggleRead = function() {
+    this.read = !(this.read);
 }
 
 function addBookToLibrary() {
@@ -48,14 +44,13 @@ function displayBooks() {
         
         for (const prop in book) {
             const newDiv = document.createElement('div');
-            if (prop === 'read') {
-                const newText = document.createTextNode('Read? ');
-                const newContent = document.createElement('INPUT');
-                newContent.setAttribute('type', 'checkbox');
-                if (book[prop]) {
-                    newContent.setAttribute('checked', "");
+            if (prop === 'read') { //add toggle read button
+                const newContent = document.createElement('button');
+                if (book[prop] ===  true) {
+                    newContent.classList.add('read');
                 }
-                newDiv.append(newText);
+                newContent.addEventListener('click', toggleReadClass);
+                newContent.setAttribute('data-index', counter);
                 newDiv.append(newContent);
                 newCard.append(newDiv); 
                 break;
@@ -65,23 +60,33 @@ function displayBooks() {
                 newCard.append(newDiv);
             }
         }
+        //add Remove Book Button
         const removeBtn = document.createElement('button');
-        removeBtn.setAttribute('data-index', counter++);
+        removeBtn.textContent = 'Remove';
+        removeBtn.setAttribute('data-index', counter);
         removeBtn.addEventListener('click', removeBook);
         newCard.append(removeBtn);
+
         //display book as a card or table
+        counter++;
         display.appendChild(newCard);
      }
 }
 
 function removeBook(e) {
-    // myLibrary.splice(e.target)
+    //find index from button, and remove that element from library
     const index = e.target.getAttribute('data-index');
     console.log(index);
     myLibrary.splice(index, 1);
     displayBooks();
  }
 
+function toggleReadClass (e) {
+    const index = e.target.getAttribute('data-index');
+    myLibrary[index].toggleRead();
+    displayBooks();
+    console.log(myLibrary[index]);
+}
 const newBook = document.getElementById('newBtn'); //bring up popup form
 newBook.addEventListener('click', toggleForm);
 
