@@ -39,12 +39,13 @@ function toggleForm() {
 function displayBooks() {
     const display = document.querySelector('.display');
     display.innerHTML = '';
+    let counter = 0;
     // loop through array and display book on screen
      for (const book of myLibrary) {
         //create div and add class card to it
         const newCard = document.createElement('div');
         newCard.classList.add('card');
-
+        
         for (const prop in book) {
             const newDiv = document.createElement('div');
             if (prop === 'read') {
@@ -63,14 +64,23 @@ function displayBooks() {
                 newDiv.append(newContent);
                 newCard.append(newDiv);
             }
-            
         }
+        const removeBtn = document.createElement('button');
+        removeBtn.setAttribute('data-index', counter++);
+        removeBtn.addEventListener('click', removeBook);
+        newCard.append(removeBtn);
         //display book as a card or table
         display.appendChild(newCard);
      }
 }
 
-
+function removeBook(e) {
+    // myLibrary.splice(e.target)
+    const index = e.target.getAttribute('data-index');
+    console.log(index);
+    myLibrary.splice(index, 1);
+    displayBooks();
+ }
 
 const newBook = document.getElementById('newBtn'); //bring up popup form
 newBook.addEventListener('click', toggleForm);

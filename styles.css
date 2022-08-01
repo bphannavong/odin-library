@@ -49,6 +49,10 @@ main {
     font-weight: bold;
 }
 
+.card button {
+    color: black;
+}
+
 form {
     justify-self: center;
     display: flex;
@@ -70,6 +74,7 @@ form button{
     justify-self: center;
     color: white;
 }
+
 .hidden {
     display: none;
 }
