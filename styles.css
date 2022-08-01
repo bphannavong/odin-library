@@ -44,6 +44,10 @@ main {
     text-align: center;
 }
 
+.card.read {
+    border: 2px solid green;
+}
+
 .card div:first-child {
     font-size: 1.2rem;
     font-weight: bold;
@@ -54,7 +58,9 @@ main {
     background-color: red;
     content: 'Not Read'
 }
+
 .card button.read {
+    color: black;
     background-color: green;
     content: 'Read';
 }

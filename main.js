@@ -4,11 +4,15 @@ function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;   
+    this.read = read;
 }
 
 Book.prototype.toggleRead = function() {
-    this.read = !(this.read);
+    if (this.read === 'read') {
+        this.read = 'not-read';
+    } else {
+        this.read = 'read';
+    }
 }
 
 function addBookToLibrary() {
@@ -19,6 +23,7 @@ function addBookToLibrary() {
     const pages = document.getElementById('pages').value;
     const read = document.getElementById('read').value;
 
+    console.log(read);
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
     console.log(myLibrary);
@@ -46,8 +51,9 @@ function displayBooks() {
             const newDiv = document.createElement('div');
             if (prop === 'read') { //add toggle read button
                 const newContent = document.createElement('button');
-                if (book[prop] ===  true) {
+                if (book[prop] === 'read') {
                     newContent.classList.add('read');
+                    newCard.classList.add('read');
                 }
                 newContent.addEventListener('click', toggleReadClass);
                 newContent.setAttribute('data-index', counter);
@@ -87,6 +93,7 @@ function toggleReadClass (e) {
     displayBooks();
     console.log(myLibrary[index]);
 }
+
 const newBook = document.getElementById('newBtn'); //bring up popup form
 newBook.addEventListener('click', toggleForm);
 
