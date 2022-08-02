@@ -28,12 +28,7 @@ function addBookToLibrary() {
     myLibrary.push(book);
     console.log(myLibrary);
     displayBooks();
-    toggleForm();
-}
-
-function toggleForm() {
-    const bookForm = document.getElementById('bookForm');
-    bookForm.classList.toggle('hidden');
+    modal.style.display = 'none';
 }
 
 
@@ -51,6 +46,7 @@ function displayBooks() {
             const newDiv = document.createElement('div');
             if (prop === 'read') { //add toggle read button
                 const newContent = document.createElement('button');
+                newContent.classList.add('toggle');
                 if (book[prop] === 'read') {
                     newContent.classList.add('read');
                     newCard.classList.add('read');
@@ -74,7 +70,7 @@ function displayBooks() {
         newCard.append(removeBtn);
 
         //display book as a card or table
-        counter++;
+        counter++; //increment counter for myLibrary index (data-index)
         display.appendChild(newCard);
      }
 }
@@ -93,18 +89,20 @@ function toggleReadClass (e) {
     displayBooks();
     console.log(myLibrary[index]);
 }
+
 const modal = document.querySelector('.modal');
 const closeModal = document.querySelector('.close');
 const newBook = document.getElementById('newBook'); //bring up popup form
-newBook.addEventListener('click', function () {
+
+newBook.addEventListener('click', function () { //show modal
     modal.style.display = 'block';
 });
 
-closeModal.addEventListener('click', function () {
+closeModal.addEventListener('click', function () { //close modal
     modal.style.display = 'none';
 })
 
-window.addEventListener('click', function(e) {
+window.addEventListener('click', function(e) { //if window is clicked on modal (not modal content) then close modal
     console.log(e.target);
     if (e.target == modal) {
         modal.style.display = 'none';

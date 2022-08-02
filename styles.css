@@ -39,7 +39,6 @@ main {
     border: 1px solid red;
     border-radius: 5px;
     padding: 2rem;
-
     display: grid;
     text-align: center;
 }
@@ -53,21 +52,27 @@ main {
     font-weight: bold;
 }
 
-.card button {
+.toggle {
     color: black;
     background-color: red;
-    content: 'Not Read'
 }
 
-.card button.read {
+.toggle::after {
+    content: 'Not Read';
+}
+
+.toggle.read {
     color: black;
     background-color: green;
+}
+
+.toggle.read::after {
     content: 'Read';
 }
 
 .modal {
     display: none; /* hidden by default */
-    position: fixed; /*stay in place*/
+    position: fixed; /*stay in place in relation to the viewport (stays even when scrolled)*/
     z-index: 1; /* sit on top */
     left: 0;
     top: 0;
@@ -80,10 +85,12 @@ main {
 
 .modal-content {
     background-color: #fefefe;
+    border: none;
+    border-radius: 10px;
     margin: 15% auto; /*15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 50%;
 }
 
 .close {
@@ -99,3 +106,4 @@ main {
     text-decoration: none;
     cursor: pointer;
 }
+
