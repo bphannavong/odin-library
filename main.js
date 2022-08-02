@@ -100,6 +100,7 @@ newBook.addEventListener('click', function () { //show modal
 
 closeModal.addEventListener('click', function () { //close modal
     modal.style.display = 'none';
+    
 })
 
 window.addEventListener('click', function(e) { //if window is clicked on modal (not modal content) then close modal

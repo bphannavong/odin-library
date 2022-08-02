@@ -8,6 +8,7 @@ main {
     display: grid;
     place-items: center;
     position: relative;
+    gap: 1rem;
 }
 
 .wrapper {
@@ -16,9 +17,11 @@ main {
 }
 
 .main-content {
-    border: 1px solid red;
-    height: 500px;
-    width: 1000px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    width: 80%;
+    height: auto;
+    min-height: 100px;
 }
 
 .main-content button {
@@ -30,8 +33,11 @@ main {
 .display {
     display: grid;
     width: 80%;
-    height: 40vh;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    place-items: start;
+    place-content: start;
+    
 }
 .card {
     width: 15rem;
@@ -41,6 +47,7 @@ main {
     padding: 2rem;
     display: grid;
     text-align: center;
+    justify-items: center;
 }
 
 .card.read {
@@ -84,20 +91,32 @@ main {
 }
 
 .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #fefefe;
     border: none;
     border-radius: 10px;
     margin: 15% auto; /*15% from the top and centered */
-    padding: 20px;
+    padding: 1rem;
+    gap: 2rem;
     border: 1px solid #888;
-    width: 50%;
+    width: 25%;
+    min-width: 22rem;
 }
-
+.modal-content div {
+    width: 80%;
+    margin-bottom: 0.5rem;
+    
+}
 .close {
     color: #aaa;
     float: right;
+    align-self: end;
     font-size: 28px;
     font-weight: bold;
+    border: none;
+    background-color: #fefefe;
 }
 
 .close:hover,
@@ -107,3 +126,13 @@ main {
     cursor: pointer;
 }
 
+select, input {
+    appearance: none;
+    width: 100%;
+    height: 2rem;
+    padding-left: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: lightgray;
+    
+}
