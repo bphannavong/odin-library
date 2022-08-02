@@ -93,9 +93,23 @@ function toggleReadClass (e) {
     displayBooks();
     console.log(myLibrary[index]);
 }
+const modal = document.querySelector('.modal');
+const closeModal = document.querySelector('.close');
+const newBook = document.getElementById('newBook'); //bring up popup form
+newBook.addEventListener('click', function () {
+    modal.style.display = 'block';
+});
 
-const newBook = document.getElementById('newBtn'); //bring up popup form
-newBook.addEventListener('click', toggleForm);
+closeModal.addEventListener('click', function () {
+    modal.style.display = 'none';
+})
+
+window.addEventListener('click', function(e) {
+    console.log(e.target);
+    if (e.target == modal) {
+        modal.style.display = 'none';
+    }
+})
 
 const addBook = document.getElementById('submitBtn');
 addBook.addEventListener('click', addBookToLibrary);
