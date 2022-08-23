@@ -1,138 +1,152 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 main {
-    display: grid;
-    place-items: center;
-    position: relative;
-    gap: 1rem;
+  display: grid;
+  place-items: center;
+  position: relative;
+  gap: 1rem;
 }
 
 .wrapper {
-    display: grid;
-    padding: 1rem;
+  display: grid;
+  padding: 1rem;
 }
 
 .main-content {
-    border: 2px solid gray;
-    border-radius: 10px;
-    width: 80%;
-    height: auto;
-    min-height: 100px;
+  border: 2px solid gray;
+  border-radius: 10px;
+  width: 80%;
+  height: auto;
+  min-height: 100px;
 }
 
 .main-content button {
-    width: 100px;
-    height: 50px;
-    border-radius: 15px;
+  width: 100px;
+  height: 50px;
+  border-radius: 15px;
 }
 
 .display {
-    display: grid;
-    width: 80%;
-    gap: 0.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    place-items: start;
-    place-content: start;
-    
+  display: grid;
+  width: 80%;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  place-items: start;
+  place-content: start;
 }
 .card {
-    width: 15rem;
-    height: 20rem;
-    border: 1px solid red;
-    border-radius: 5px;
-    padding: 2rem;
-    display: grid;
-    text-align: center;
-    justify-items: center;
+  width: 15rem;
+  height: 20rem;
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 2rem;
+  display: grid;
+  text-align: center;
+  justify-items: center;
 }
 
 .card.read {
-    border: 2px solid green;
+  border: 2px solid green;
 }
 
 .card div:first-child {
-    font-size: 1.2rem;
-    font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .toggle {
-    color: black;
-    background-color: red;
+  color: black;
+  background-color: red;
 }
 
 .toggle::after {
-    content: 'Not Read';
+  content: "Not Read";
 }
 
 .toggle.read {
-    color: black;
-    background-color: green;
+  color: black;
+  background-color: green;
 }
 
 .toggle.read::after {
-    content: 'Read';
+  content: "Read";
 }
 
 .modal {
-    display: none; /* hidden by default */
-    position: fixed; /*stay in place in relation to the viewport (stays even when scrolled)*/
-    z-index: 1; /* sit on top */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto; /* enable scroll if needed */
-    background-color: rgb(0, 0, 0); /*fallback color */
-    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  display: none; /* hidden by default */
+  position: fixed; /*stay in place in relation to the viewport (stays even when scrolled)*/
+  z-index: 1; /* sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* enable scroll if needed */
+  background-color: rgb(0, 0, 0); /*fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 .modal-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #fefefe;
-    border: none;
-    border-radius: 10px;
-    margin: 15% auto; /*15% from the top and centered */
-    padding: 1rem;
-    gap: 2rem;
-    border: 1px solid #888;
-    width: 25%;
-    min-width: 22rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fefefe;
+  border: none;
+  border-radius: 10px;
+  margin: 15% auto; /*15% from the top and centered */
+  padding: 1rem;
+  gap: 2rem;
+  border: 1px solid #888;
+  width: 25%;
+  min-width: 22rem;
 }
 .modal-content div {
-    width: 80%;
-    margin-bottom: 0.5rem;
-    
+  width: 80%;
+  margin-bottom: 0.5rem;
 }
 .close {
-    color: #aaa;
-    float: right;
-    align-self: end;
-    font-size: 28px;
-    font-weight: bold;
-    border: none;
-    background-color: #fefefe;
+  color: #aaa;
+  float: right;
+  align-self: end;
+  font-size: 28px;
+  font-weight: bold;
+  border: none;
+  background-color: #fefefe;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-select, input {
-    appearance: none;
-    width: 100%;
-    height: 2rem;
-    padding-left: 1rem;
-    border-radius: 5px;
-    border: none;
-    background-color: lightgray;
-    
+select,
+input {
+  appearance: none;
+  width: 100%;
+  height: 2rem;
+  padding-left: 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: lightgray;
+}
+
+.error {
+  width: 100%;
+  padding: 0;
+
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
 }
